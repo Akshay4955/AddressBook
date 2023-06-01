@@ -13,9 +13,8 @@ public class Contact
 
     public override string ToString()
     {
-        return firstName.ToString() + " " + lastName.ToString() + " " + address.ToString() + " " +
-            address.ToString() + " " + city.ToString() + " " + state.ToString() + " " + 
-            zipcode.ToString() + " " + phoneNumber.ToString() + " " + email.ToString();
+        return firstName.ToString() + " " + lastName.ToString() + " " + address.ToString() + " " + city.ToString() + " " + state.ToString() +
+            " " + zipcode.ToString() + " " + phoneNumber.ToString() + " " + email.ToString();
     }
 
 }

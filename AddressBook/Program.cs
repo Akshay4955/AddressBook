@@ -5,8 +5,9 @@ internal class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Welcome to addressbook project...!!!");
+        Console.WriteLine("--------------------------------------");
         AddressBook addressBook = new AddressBook();
-        addressBook.AddContacts();
-        addressBook.PrintContacts();
+        addressBook.AddContact();
+        addressBook.EditContact();
     }
 }
