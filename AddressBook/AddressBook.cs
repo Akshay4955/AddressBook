@@ -99,6 +99,27 @@ public class AddressBook
         }
     }
 
+    public void DeleteContact()
+    {
+        Console.WriteLine("Plz enter the name whose contact you want to delete :");
+        string name = Console.ReadLine();
+        foreach (Contact contact in addressBook)
+        {
+            if (contact.firstName == name)
+            {
+                addressBook.Remove(contact);
+                Console.WriteLine("Contact after deleting contact");
+                PrintContact();
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Contact not available with entered name to delete");
+            }
+
+        }
+    }
+
     public void PrintContact()
     {
         foreach (Contact contact in addressBook)

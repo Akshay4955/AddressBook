@@ -9,5 +9,6 @@ internal class Program
         AddressBook addressBook = new AddressBook();
         addressBook.AddContact();
         addressBook.EditContact();
+        addressBook.DeleteContact();
     }
 }
