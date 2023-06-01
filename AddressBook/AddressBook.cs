@@ -30,8 +30,13 @@ public class AddressBook
 
     public void AddContact()
     {
-        Contact contact = CreateContact();
-        addressBook.Add(contact);
+        Console.WriteLine("Plz enter how many contacts you want to add ");
+        int noOfContacts = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < noOfContacts; i++)
+        {
+            Contact contact = CreateContact();
+            addressBook.Add(contact);
+        }
         Console.WriteLine("Contact after adding contact");
         PrintContact();
     }
@@ -42,7 +47,7 @@ public class AddressBook
         string name = Console.ReadLine();
         foreach (Contact contact in addressBook) 
         {
-            if (contact.firstName == name)
+            if (contact.firstName.Equals(name, StringComparison.InvariantCultureIgnoreCase))
             {
                 Console.WriteLine("Plz enter which field you want to edit ");
                 Console.WriteLine("Press 1 for First Name" + '\t' + "Press 2 for Last Name " + '\t' +
@@ -105,7 +110,7 @@ public class AddressBook
         string name = Console.ReadLine();
         foreach (Contact contact in addressBook)
         {
-            if (contact.firstName == name)
+            if (contact.firstName.Equals(name, StringComparison.InvariantCultureIgnoreCase))
             {
                 addressBook.Remove(contact);
                 Console.WriteLine("Contact after deleting contact");
@@ -122,9 +127,9 @@ public class AddressBook
 
     public void PrintContact()
     {
+        Console.WriteLine("Contact present in addressbook : ");
         foreach (Contact contact in addressBook)
         {
-            Console.WriteLine("Contact present in addressbook : ");
             Console.WriteLine(contact);
         }
     }
