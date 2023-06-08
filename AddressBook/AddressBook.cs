@@ -4,7 +4,40 @@ namespace AddressBook;
 
 public class AddressBook
 {
-    ArrayList addressBook = new ArrayList();
+    ArrayList addressBook;
+
+    public void AddressBookOperation(ArrayList contacts)
+    {
+        addressBook = contacts;
+        bool loop = true;
+        while(loop)
+        {
+            Console.WriteLine("Plz enter what you want to perform : " + '\n' + "press 1 for Edit Contact" + '\n' + "press 2 for print contact" + 
+                            '\n' + "Enter 3 for add contact" + '\n' + "Enter 4 for delete contact" + '\n' + "Enter 0 to exit");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch(choice)
+            {
+                case 1:
+                    EditContact();
+                    break;
+                case 2:
+                    PrintContact();
+                    break;
+                case 3:
+                    AddContact();
+                    break;
+                case 4:
+                    DeleteContact();
+                    break;
+                case 0:
+                    loop = false;
+                    break;
+                default:
+                    Console.WriteLine("You entered wrong choice. Plz try with valid option");
+                    break;
+            }
+        }
+    }
     public Contact CreateContact()
     {
         Console.WriteLine("Plz enter contact details");
@@ -97,40 +130,45 @@ public class AddressBook
                 PrintContact();
                 break;
             }
-            else
-            {
-                Console.WriteLine("Contact not available with entered name to edit");
-            }
         }
+        
+        Console.WriteLine("Contact not available with entered name to edit");
     }
 
     public void DeleteContact()
     {
-        Console.WriteLine("Plz enter the name whose contact you want to delete :");
-        string name = Console.ReadLine();
-        foreach (Contact contact in addressBook)
+        if (addressBook.Count == 0)
+            Console.WriteLine("AddressBook is empty");
+        else
         {
-            if (contact.firstName.Equals(name, StringComparison.InvariantCultureIgnoreCase))
+            Console.WriteLine("Plz enter the name whose contact you want to delete :");
+            string name = Console.ReadLine();
+            foreach (Contact contact in addressBook)
             {
-                addressBook.Remove(contact);
-                Console.WriteLine("Contact after deleting contact");
-                PrintContact();
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Contact not available with entered name to delete");
+                if (contact.firstName.Equals(name, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    addressBook.Remove(contact);
+                    Console.WriteLine("Contact after deleting contact");
+                    PrintContact();
+                    break;
+                }
             }
 
+            Console.WriteLine("Contact not available with entered name to delete");
         }
     }
 
     public void PrintContact()
     {
-        Console.WriteLine("Contact present in addressbook : ");
-        foreach (Contact contact in addressBook)
+        if (addressBook.Count == 0)
+            Console.WriteLine("AddressBook is empty.");
+        else
         {
-            Console.WriteLine(contact);
+            Console.WriteLine("Contact present in addressbook : ");
+            foreach (Contact contact in addressBook)
+            {
+                Console.WriteLine(contact);
+            }
         }
     }
 }
