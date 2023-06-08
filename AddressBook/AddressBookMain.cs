@@ -12,7 +12,9 @@ public class AddressBookMain
         ArrayList contacts = new ArrayList();
         Console.WriteLine("Enter unique name for your addressbook ");
         string name = Console.ReadLine();
-        if (!AddressBookDictionary.ContainsKey(name)) 
+        if (name == "")
+            Console.WriteLine("Plz enter valid name");
+        else if (!AddressBookDictionary.ContainsKey(name)) 
             AddressBookDictionary.Add(name, contacts);
         else
             Console.WriteLine("Entered key is already available. Plz try with different key.");

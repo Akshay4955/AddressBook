@@ -14,27 +14,38 @@ public class AddressBook
         {
             Console.WriteLine("Plz enter what you want to perform : " + '\n' + "press 1 for Edit Contact" + '\n' + "press 2 for print contact" + 
                             '\n' + "Enter 3 for add contact" + '\n' + "Enter 4 for delete contact" + '\n' + "Enter 0 to exit");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch(choice)
+            try
             {
-                case 1:
-                    EditContact();
-                    break;
-                case 2:
-                    PrintContact();
-                    break;
-                case 3:
-                    AddContact();
-                    break;
-                case 4:
-                    DeleteContact();
-                    break;
-                case 0:
-                    loop = false;
-                    break;
-                default:
-                    Console.WriteLine("You entered wrong choice. Plz try with valid option");
-                    break;
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        EditContact();
+                        break;
+                    case 2:
+                        PrintContact();
+                        break;
+                    case 3:
+                        AddContact();
+                        break;
+                    case 4:
+                        DeleteContact();
+                        break;
+                    case 0:
+                        loop = false;
+                        break;
+                    default:
+                        Console.WriteLine("You entered wrong choice. Plz try with valid option");
+                        break;
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Plz try with valid input");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
@@ -87,48 +98,61 @@ public class AddressBook
                     "Press 3 for address " + '\t' + "Press 4 for City " + '\t' + "Press 5 for State" +
                     '\t' + "Press 6 for Zip Code " + '\t' + "Press 7 for Phone Number " + '\t' +
                     "Press 8 for Email ");
-                int Choice = Convert.ToInt32(Console.ReadLine());
-                switch (Choice)
+                try
                 {
-                    case 1:
-                        Console.WriteLine("Plz enter first name to be updated");
-                        contact.firstName = Console.ReadLine();
-                        break;
-                    case 2: 
-                        Console.WriteLine("Plz enter last name to be updated");
-                        contact.lastName = Console.ReadLine();
-                        break;
-                    case 3: 
-                        Console.WriteLine("Plz enter address to be updated");
-                        contact.address = Console.ReadLine();
-                        break;
-                    case 4:
-                        Console.WriteLine("Plz enter city to be updated");
-                        contact.city = Console.ReadLine();
-                        break;
-                    case 5:
-                        Console.WriteLine("Plz enter state to be updated");
-                        contact.state = Console.ReadLine();
-                        break;
-                    case 6:
-                        Console.WriteLine("Plz enter Zip Code to be updated");
-                        contact.zipcode = Console.ReadLine();
-                        break;
-                    case 7:
-                        Console.WriteLine("Plz enter Phone Number to be updated");
-                        contact.phoneNumber = Console.ReadLine();
-                        break;
-                    case 8:
-                        Console.WriteLine("Plz enter email to be updated");
-                        contact.email = Console.ReadLine();
-                        break;
-                    default:
-                        Console.WriteLine("You entered wrong input");
-                        break;
+                    int Choice = Convert.ToInt32(Console.ReadLine());
+                    switch (Choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Plz enter first name to be updated");
+                            contact.firstName = Console.ReadLine();
+                            break;
+                        case 2:
+                            Console.WriteLine("Plz enter last name to be updated");
+                            contact.lastName = Console.ReadLine();
+                            break;
+                        case 3:
+                            Console.WriteLine("Plz enter address to be updated");
+                            contact.address = Console.ReadLine();
+                            break;
+                        case 4:
+                            Console.WriteLine("Plz enter city to be updated");
+                            contact.city = Console.ReadLine();
+                            break;
+                        case 5:
+                            Console.WriteLine("Plz enter state to be updated");
+                            contact.state = Console.ReadLine();
+                            break;
+                        case 6:
+                            Console.WriteLine("Plz enter Zip Code to be updated");
+                            contact.zipcode = Console.ReadLine();
+                            break;
+                        case 7:
+                            Console.WriteLine("Plz enter Phone Number to be updated");
+                            contact.phoneNumber = Console.ReadLine();
+                            break;
+                        case 8:
+                            Console.WriteLine("Plz enter email to be updated");
+                            contact.email = Console.ReadLine();
+                            break;
+                        default:
+                            Console.WriteLine("You entered wrong input");
+                            break;
+                    }
+                    Console.WriteLine("Contact after editing contact");
+                    PrintContact();
+                    break;
                 }
-                Console.WriteLine("Contact after editing contact");
-                PrintContact();
-                break;
+                catch (FormatException) 
+                {
+                    Console.WriteLine("Plz try with valid input");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    break;
+                }
             }
         }
         
