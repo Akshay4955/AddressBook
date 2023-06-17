@@ -1,0 +1,36 @@
+{
+  "family": [
+    {
+      "firstName": "Akshay",
+      "lastName": "Shedge",
+      "address": "Rihe",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "412115",
+      "phoneNumber": "8796535081",
+      "email": "akshayshedge11@gmail.com"
+    }
+  ],
+  "friend": [
+    {
+      "firstName": "Rahul",
+      "lastName": "Yamgar",
+      "address": "Rihe",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "412115",
+      "phoneNumber": "9762228223",
+      "email": "rahul11@gmail.com"
+    },
+    {
+      "firstName": "Mangesh",
+      "lastName": "Matere",
+      "address": "Materewadi",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "412115",
+      "phoneNumber": "982872862",
+      "email": "mangesh11@gmail.com"
+    }
+  ]
+}

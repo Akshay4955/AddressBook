@@ -8,6 +8,7 @@ internal class Program
         Console.WriteLine("--------------------------------------");
         
         AddressBookMain addressBookMain = new AddressBookMain();
+        addressBookMain.ReadFromJSON();
         bool loop = true;
         while(loop)
         {

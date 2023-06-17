@@ -4,29 +4,29 @@ namespace AddressBook;
 
 public class AddressBook
 {
-    ArrayList addressBook;
+    List<Contact> ContactAddressBook;
 
-    public void AddressBookOperation(ArrayList contacts)
+    public void AddressBookOperation(List<Contact> contacts)
     {
-        addressBook = contacts;
+        ContactAddressBook = contacts;
         bool loop = true;
         while(loop)
         {
-            Console.WriteLine("Plz enter what you want to perform : " + '\n' + "press 1 for Edit Contact" + '\n' + "press 2 for print contact" + 
-                            '\n' + "Enter 3 for add contact" + '\n' + "Enter 4 for delete contact" + '\n' + "Enter 0 to exit");
+            Console.WriteLine("Plz enter what you want to perform : " + '\n' + "press 1 for add Contact" + '\n' + "press 2 for edit contact" + 
+                            '\n' + "Enter 3 for print contact" + '\n' + "Enter 4 for delete contact" + '\n' + "Enter 0 to exit");
             try
             {
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
                     case 1:
-                        EditContact();
+                        AddContact();
                         break;
                     case 2:
-                        PrintContact();
+                        EditContact();
                         break;
                     case 3:
-                        AddContact();
+                        PrintContact();
                         break;
                     case 4:
                         DeleteContact();
@@ -79,7 +79,7 @@ public class AddressBook
         for (int i = 0; i < noOfContacts; i++)
         {
             Contact contact = CreateContact();
-            addressBook.Add(contact);
+            ContactAddressBook.Add(contact);
         }
         Console.WriteLine("Contact after adding contact");
         PrintContact();
@@ -89,7 +89,7 @@ public class AddressBook
     {
         Console.WriteLine("Plz enter the name whose contact you want to edit :");
         string name = Console.ReadLine();
-        foreach (Contact contact in addressBook) 
+        foreach (Contact contact in ContactAddressBook) 
         {
             if (contact.firstName.Equals(name, StringComparison.InvariantCultureIgnoreCase))
             {
@@ -161,17 +161,17 @@ public class AddressBook
 
     public void DeleteContact()
     {
-        if (addressBook.Count == 0)
+        if (ContactAddressBook.Count == 0)
             Console.WriteLine("AddressBook is empty");
         else
         {
             Console.WriteLine("Plz enter the name whose contact you want to delete :");
             string name = Console.ReadLine();
-            foreach (Contact contact in addressBook)
+            foreach (Contact contact in ContactAddressBook)
             {
                 if (contact.firstName.Equals(name, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    addressBook.Remove(contact);
+                    ContactAddressBook.Remove(contact);
                     Console.WriteLine("Contact after deleting contact");
                     PrintContact();
                     break;
@@ -184,12 +184,12 @@ public class AddressBook
 
     public void PrintContact()
     {
-        if (addressBook.Count == 0)
+        if (ContactAddressBook.Count == 0)
             Console.WriteLine("AddressBook is empty.");
         else
         {
             Console.WriteLine("Contact present in addressbook : ");
-            foreach (Contact contact in addressBook)
+            foreach (Contact contact in ContactAddressBook)
             {
                 Console.WriteLine(contact);
             }
